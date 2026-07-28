@@ -9,7 +9,7 @@ class HelpGuidePlugin implements Plugin
 {
     public const ID = 'help-guide';
 
-    protected string | null $login_url = '/admin/login';
+    protected ?string $login_url = '/admin/login';
 
     public function getId(): string
     {
@@ -46,13 +46,14 @@ class HelpGuidePlugin implements Plugin
     /**
      * Login URL
      */
-    public function loginUrl(string | null $login_url): static
+    public function loginUrl(?string $login_url): static
     {
         $this->login_url = $login_url;
+
         return $this;
     }
 
-    public function getloginUrl(): string | null
+    public function getloginUrl(): ?string
     {
         return value($this->login_url);
     }
