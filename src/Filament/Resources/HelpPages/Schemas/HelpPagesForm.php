@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\HelpPages\Schemas;
+namespace PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Schemas;
 
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;

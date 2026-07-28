@@ -5,6 +5,8 @@ namespace PaperLeaf\HelpGuide;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
+
 class HelpGuidePlugin implements Plugin
 {
     public const ID = 'help-guide';
@@ -18,7 +20,9 @@ class HelpGuidePlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        //
+        $panel->resources([
+            HelpPagesResource::class,
+        ]);
     }
 
     public function boot(Panel $panel): void

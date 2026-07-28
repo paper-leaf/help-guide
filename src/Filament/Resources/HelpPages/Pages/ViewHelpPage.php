@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Filament\Resources\HelpPages\Pages;
+namespace PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages;
 
-use App\Filament\Resources\HelpPages\LocalResource;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
 use App\Filament\Resources\RelationManagers\LogsRelationManager;
 
-class ViewLocal extends ViewRecord
+class ViewHelpPage extends ViewRecord
 {
-    protected static string $resource = LocalResource::class;
+    protected static string $resource = HelpPagesResource::class;
 
     protected function getAllRelationManagers(): array
     {

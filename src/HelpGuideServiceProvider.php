@@ -61,6 +61,7 @@ class HelpGuideServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
+        // Register the custom Help Guide panel
         $this->app->register(HelpGuidePanelProvider::class);
     }
 
