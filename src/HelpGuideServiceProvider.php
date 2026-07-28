@@ -89,6 +89,9 @@ class HelpGuideServiceProvider extends PackageServiceProvider
             }
         }
 
+        // Points safely to your local package's database folder
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
         // Testing
         Testable::mixin(new TestsHelpGuide);
     }
@@ -150,7 +153,7 @@ class HelpGuideServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_help-guide_table',
+            'create_help_guide_tables',
         ];
     }
 }

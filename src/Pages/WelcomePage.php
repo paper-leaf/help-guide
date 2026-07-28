@@ -37,5 +37,5 @@ class WelcomePage extends Page
 {
     protected string $view = 'help-guide::pages.welcome-page';
 
-    protected static ?string $title = 'Help Guide';
+    protected static ?string $title = 'Home';
 }
