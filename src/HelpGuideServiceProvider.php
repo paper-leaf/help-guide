@@ -10,11 +10,11 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
+use PaperLeaf\HelpGuide\Commands\HelpGuideCommand;
+use PaperLeaf\HelpGuide\Testing\TestsHelpGuide;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use PaperLeaf\HelpGuide\Commands\HelpGuideCommand;
-use PaperLeaf\HelpGuide\Testing\TestsHelpGuide;
 
 class HelpGuideServiceProvider extends PackageServiceProvider
 {
