@@ -10,6 +10,7 @@ namespace PaperLeaf\HelpGuide\Pages;
 // use Illuminate\Contracts\Support\Htmlable;
 
 use Filament\Pages\Page;
+
 // use Filament\Schemas\Schema;
 // use Filament\Schemas\Components\Livewire;
 // use Filament\Schemas\Components\Tabs;
@@ -38,7 +39,7 @@ class WelcomePage extends Page
     // public static $plugin;
 
     // #[Computed]
-    // public function plugin() 
+    // public function plugin()
     // {
     //     $plugin = filament()->getPlugin(MissionControlPlugin::ID);
     //     self::$plugin = $plugin;
