@@ -15,6 +15,7 @@ use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use PaperLeaf\HelpGuide\Commands\HelpGuideCommand;
 use PaperLeaf\HelpGuide\Testing\TestsHelpGuide;
+use PaperLeaf\HelpGuide\Providers\HelpGuidePanelProvider;
 
 class HelpGuideServiceProvider extends PackageServiceProvider
 {
@@ -58,7 +59,10 @@ class HelpGuideServiceProvider extends PackageServiceProvider
         }
     }
 
-    public function packageRegistered(): void {}
+    public function packageRegistered(): void
+    {
+        $this->app->register(HelpGuidePanelProvider::class);
+    }
 
     public function packageBooted(): void
     {

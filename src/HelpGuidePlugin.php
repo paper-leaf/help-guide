@@ -7,9 +7,13 @@ use Filament\Panel;
 
 class HelpGuidePlugin implements Plugin
 {
+    public const ID = 'help-guide';
+
+    protected string | null $login_url = '/admin/login';
+
     public function getId(): string
     {
-        return 'help-guide';
+        return static::ID;
     }
 
     public function register(Panel $panel): void
@@ -33,5 +37,23 @@ class HelpGuidePlugin implements Plugin
         $plugin = filament(app(static::class)->getId());
 
         return $plugin;
+    }
+
+    /*************************************
+     * CONFIGURATION
+     *************************************/
+
+    /**
+     * Login URL
+     */
+    public function loginUrl(string | null $login_url): static
+    {
+        $this->login_url = $login_url;
+        return $this;
+    }
+
+    public function getloginUrl(): string | null
+    {
+        return value($this->login_url);
     }
 }
