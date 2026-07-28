@@ -35,13 +35,6 @@ use Filament\Pages\Page;
 class WelcomePage extends Page
 {
     protected string $view = 'help-guide::pages.welcome-page';
-    // public static $plugin;
 
-    // #[Computed]
-    // public function plugin() 
-    // {
-    //     $plugin = filament()->getPlugin(MissionControlPlugin::ID);
-    //     self::$plugin = $plugin;
-    //     return $plugin;
-    // }
+    protected static ?string $title = 'Help Guide';
 }
