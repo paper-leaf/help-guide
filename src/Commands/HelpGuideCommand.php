@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace PaperLeaf\HelpGuide\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class HelpGuideCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'help-guide';
 
     public $description = 'My command';
 
