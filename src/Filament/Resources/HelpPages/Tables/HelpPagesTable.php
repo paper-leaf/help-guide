@@ -27,27 +27,6 @@ class HelpPagesTable
 
                 TextColumn::make('topic.title')
                     ->sortable(),
-
-                // TextColumn::make('name')
-                //     ->sortable(query: function (Builder $query, string $direction) {
-                //         return $query->orderByRaw('CAST(local_number AS SIGNED) ' . $direction);
-                //     })
-                //     ->searchable()
-                //     ->grow(),
-
-                // TextColumn::make('city.title')
-                //     ->sortable()
-                //     ->default('-'),
-
-                // TextColumn::make('citizens_count')
-                //     ->label('Citizens and applicants in Local')
-                //     ->sortable()
-                //     ->badge()
-                //     ->color('info')
-                //     ->counts('citizens'),
-            ])
-            ->filters([
-                //
             ])
             ->recordUrl(null)
             ->recordActions([
