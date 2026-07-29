@@ -2,11 +2,10 @@
 
 namespace PaperLeaf\HelpGuide\Filament\Resources\Topics\Schemas;
 
-use Illuminate\Support\Str;
-
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Str;
 
 class TopicForm
 {
@@ -21,7 +20,7 @@ class TopicForm
                     ->live(onBlur: true)
                     ->afterStateUpdated(function (?string $state, ?string $old, $set) {
                         // Don't make any dynamic changes if a value is previously set
-                        if(isset($old) && $old != '') {
+                        if (isset($old) && $old != '') {
                             return;
                         }
 
