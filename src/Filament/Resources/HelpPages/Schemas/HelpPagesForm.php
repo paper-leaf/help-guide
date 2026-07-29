@@ -53,8 +53,9 @@ class HelpPageForm
                                 ->searchable(),
 
                             TextInput::make('icon')
-                                ->belowLabel('Select an icon to represent this page in the navigation.')
-                                ->required(),
+                                ->required()
+                                ->belowLabel('Set an icon to represent this page in the navigation.')
+                                ->placeholder('heroicon-o-face-smile'),
 
                             TextArea::make('description')
                                 ->label('Short description')

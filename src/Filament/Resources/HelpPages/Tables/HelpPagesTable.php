@@ -27,6 +27,7 @@ class HelpPagesTable
 
                 TextColumn::make('topic.title')
                     ->sortable(),
+
                 // TextColumn::make('name')
                 //     ->sortable(query: function (Builder $query, string $direction) {
                 //         return $query->orderByRaw('CAST(local_number AS SIGNED) ' . $direction);
