@@ -3,10 +3,9 @@
 namespace PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages;
 
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
-use Filament\Actions\EditAction;
-use Filament\Resources\Pages\ViewRecord;
+use Filament\Resources\Pages\EditRecord;
 
-class ViewHelpPage extends ViewRecord
+class EditHelpPage extends EditRecord
 {
     protected static string $resource = HelpPagesResource::class;
 }

@@ -46,6 +46,10 @@ class HelpGuidePanelProvider extends PanelProvider
             ->brandLogo(globalValue('logo'))
             ->brandLogoHeight('3.2rem')
             ->favicon(globalValue('favicon'))
+            ->discoverClusters(
+                in: __DIR__ . '/../Filament/Clusters', 
+                for: 'PaperLeaf\\HelpGuide\\Filament\\Clusters'
+            )
             ->discoverResources(
                 in: __DIR__ . '/../Filament/Resources',
                 for: 'PaperLeaf\\HelpGuide\\Filament\\Resources'

@@ -4,11 +4,10 @@ namespace PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Tables;
 
 use Illuminate\Database\Eloquent\Builder;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\ActionGroup;
 use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
-use Filament\Tables\Enums\RecordActionsPosition;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -18,7 +17,16 @@ class HelpPagesTable
     {
         return $table
             ->columns([
-                TextColumn::make('title'),
+                TextColumn::make('title')
+                    ->sortable()
+                    ->searchable(),
+
+                TextColumn::make('status')
+                    ->badge()
+                    ->sortable(),
+
+                TextColumn::make('topic.title')
+                    ->sortable(),
                 // TextColumn::make('name')
                 //     ->sortable(query: function (Builder $query, string $direction) {
                 //         return $query->orderByRaw('CAST(local_number AS SIGNED) ' . $direction);
@@ -43,7 +51,14 @@ class HelpPagesTable
             ->recordUrl(null)
             ->recordActions([
                 ViewAction::make()->button()->color('primary'),
-            ])
-            ->recordActionsPosition(RecordActionsPosition::BeforeColumns);
+
+                ActionGroup::make([
+                    EditAction::make()
+                        ->color('primary'),
+
+                    DeleteAction::make()
+                        ->color('danger'),
+                ])
+            ]);
     }
 }

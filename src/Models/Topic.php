@@ -36,6 +36,6 @@ class Topic extends Model
      */
     public function pages()
     {
-        return $this->belongsTo(HelpPage::class);
+        return $this->hasMany(HelpPage::class);
     }
 }
