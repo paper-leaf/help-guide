@@ -2,6 +2,8 @@
 
 namespace PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Schemas;
 
+use Illuminate\Support\Str;
+
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TextArea;
@@ -31,7 +33,18 @@ class HelpPageForm
                         ->schema([
                             TextInput::make('title')
                                 ->label('Page title')
-                                ->required(),
+                                ->required()
+                                ->live(onBlur: true)
+                                ->afterStateUpdated(function (?string $state, ?string $old, $set) {
+                                    // Don't make any dynamic changes if a value is previously set
+                                    if(isset($old) && $old != '') {
+                                        return;
+                                    }
+
+                                    // Create a slug from the page title
+                                    $slug = Str::slug($state);
+                                    $set('slug', $slug);
+                                }),
 
                             Select::make('topic_id')
                                 ->label('Topic')
@@ -74,7 +87,8 @@ class HelpPageForm
 
                             TextInput::make('slug')
                                 ->label('Page slug')
-                                ->required(),
+                                ->required()
+                                ->unique(),
                         ])
                 ])
             ]);
