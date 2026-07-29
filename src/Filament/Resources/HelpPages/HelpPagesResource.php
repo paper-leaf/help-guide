@@ -10,7 +10,6 @@ use PaperLeaf\HelpGuide\Filament\Clusters\ManageCluster;
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages\CreateHelpPage;
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages\EditHelpPage;
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages\ListHelpPages;
-use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages\ViewHelpPage;
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Schemas\HelpPageForm;
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Schemas\LocalInfolist;
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Tables\HelpPagesTable;
@@ -55,8 +54,7 @@ class HelpPagesResource extends Resource
         return [
             'index' => ListHelpPages::route('/'),
             'create' => CreateHelpPage::route('/create'),
-            'view' => ViewHelpPage::route('/{record}'),
-            'edit' => EditHelpPage::route('/{record}/edit'),
+            'edit' => EditHelpPage::route('/{record:slug}/edit'),
         ];
     }
 }

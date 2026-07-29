@@ -3,6 +3,10 @@
 namespace PaperLeaf\HelpGuide\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
+use PaperLeaf\HelpGuide\Pages\ViewHelpPage;
+
 use PaperLeaf\HelpGuide\Models\Enums\Status;
 
 class HelpPage extends Model
@@ -30,6 +34,29 @@ class HelpPage extends Model
         'viewable_by_role',
         'nav_order',
     ];
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
+    /**
+     * Create the URL to this page
+     */
+    protected function pageUrl(): Attribute
+    {
+        $topic = optional($this->topic)->slug;
+        $topic = (isset($topic)) ? $topic : 'uncategorized';
+
+        $url = ViewHelpPage::getUrl([
+            'record' => $this->slug,
+            'topic' => $topic,
+        ]);
+
+        return Attribute::make(
+            get: fn () => $url,
+        );
+    }
 
     /**
      * Get the attributes that should be cast.

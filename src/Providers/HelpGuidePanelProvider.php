@@ -21,6 +21,10 @@ use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
 use PaperLeaf\HelpGuide\Pages\WelcomePage;
+use PaperLeaf\HelpGuide\Pages\ViewHelpPage;
+
+use PaperLeaf\HelpGuide\HelpGuidePlugin;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 
 class HelpGuidePanelProvider extends PanelProvider
 {
@@ -42,6 +46,7 @@ class HelpGuidePanelProvider extends PanelProvider
             ])
             ->pages([
                 WelcomePage::class,
+                ViewHelpPage::class, 
             ])
             ->authGuard('web')
             ->authMiddleware([
@@ -90,9 +95,11 @@ class HelpGuidePanelProvider extends PanelProvider
                     $icon = 'heroicon-m-exclamation-triangle';
                 }
 
+                $route_name = 'filament.help-guide.manage.resources.help-pages.view';
+
                 return NavigationItem::make($page->title)
-                    ->url('/')
-                    // ->url(route('filament.admin.resources.projects.view', $project))
+                    ->url(fn() => $page->page_url)
+                    ->isActiveWhen(fn () => request()->url() === $page->page_url)
                     ->icon($icon)
                     ->group($group)
                     ->sort($page->nav_order);
