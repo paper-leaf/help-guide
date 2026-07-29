@@ -20,11 +20,8 @@ use PaperLeaf\HelpGuide\Http\Middleware\RedirectGuests;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
-use PaperLeaf\HelpGuide\Pages\WelcomePage;
 use PaperLeaf\HelpGuide\Pages\ViewHelpPage;
-
-use PaperLeaf\HelpGuide\HelpGuidePlugin;
-use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
+use PaperLeaf\HelpGuide\Pages\WelcomePage;
 
 class HelpGuidePanelProvider extends PanelProvider
 {
@@ -46,7 +43,7 @@ class HelpGuidePanelProvider extends PanelProvider
             ])
             ->pages([
                 WelcomePage::class,
-                ViewHelpPage::class, 
+                ViewHelpPage::class,
             ])
             ->authGuard('web')
             ->authMiddleware([
@@ -98,7 +95,7 @@ class HelpGuidePanelProvider extends PanelProvider
                 $route_name = 'filament.help-guide.manage.resources.help-pages.view';
 
                 return NavigationItem::make($page->title)
-                    ->url(fn() => $page->page_url)
+                    ->url(fn () => $page->page_url)
                     ->isActiveWhen(fn () => request()->url() === $page->page_url)
                     ->icon($icon)
                     ->group($group)

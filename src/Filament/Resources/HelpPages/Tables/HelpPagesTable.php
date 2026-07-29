@@ -30,7 +30,7 @@ class HelpPagesTable
             ->recordActions([
                 ViewAction::make()
                     ->button()
-                    ->url(fn($record) => $record->page_url)
+                    ->url(fn ($record) => $record->page_url)
                     ->color('primary'),
 
                 ActionGroup::make([

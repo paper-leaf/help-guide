@@ -2,12 +2,10 @@
 
 namespace PaperLeaf\HelpGuide\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-
-use PaperLeaf\HelpGuide\Pages\ViewHelpPage;
-
+use Illuminate\Database\Eloquent\Model;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
+use PaperLeaf\HelpGuide\Pages\ViewHelpPage;
 
 class HelpPage extends Model
 {
