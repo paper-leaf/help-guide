@@ -33,8 +33,13 @@ class TopicForm
                 TextInput::make('slug')
                     ->label('Page slug')
                     ->belowLabel('Set the URL slug for the page that displays all help pages for this topic.')
-                    ->required()
-                    ->columnSpanFull(),
+                    ->required(),
+
+                TextInput::make('nav_order')
+                    ->label('Order in navigation')
+                    ->belowLabel('Set the display order for this page within its topic. Lower numbers appear first.')
+                    ->numeric()
+                    ->step(1),
 
                 TextArea::make('description')
                     ->label('Short description')

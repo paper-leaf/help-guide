@@ -2,6 +2,10 @@
 
 namespace PaperLeaf\HelpGuide\Providers;
 
+use BladeUI\Icons\Factory as IconFactory;
+use Illuminate\Support\Str;
+use Filament\Support\Icons\Heroicon;
+use Filament\Navigation\NavigationItem;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Panel;
@@ -15,6 +19,11 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use PaperLeaf\HelpGuide\Http\Middleware\RedirectGuests;
 use PaperLeaf\HelpGuide\Pages\WelcomePage;
+
+use PaperLeaf\HelpGuide\Models\Enums\Status;
+
+use PaperLeaf\HelpGuide\Models\HelpPage;
+use PaperLeaf\HelpGuide\Models\Topic;
 
 class HelpGuidePanelProvider extends PanelProvider
 {
@@ -53,6 +62,62 @@ class HelpGuidePanelProvider extends PanelProvider
             ->discoverResources(
                 in: __DIR__ . '/../Filament/Resources',
                 for: 'PaperLeaf\\HelpGuide\\Filament\\Resources'
-            );
+            )
+            ->navigationGroups(self::generateNavigationGroups())
+            ->navigationItems(self::generateNavigationItems());
+    }
+
+    /**
+     * Generate the navigation items!
+     * 
+     * @return array
+     */
+    private function generateNavigationItems()
+    {
+        // Query the pages
+        $pages = HelpPage::query()
+                    ->where('status', Status::PUBLISHED)
+                    ->with('topic')
+                    ->get()
+                    ->map(function($page) {
+                        // Group help pages by topic
+                        $topic = $page->topic;
+                        $group = (isset($topic)) ? $topic->title : 'Uncategorized';
+
+                        // Make sure the page icon exists
+                        try {
+                            $icon = Str::start($page->icon, 'heroicon-');
+                            $icon_exists = app(IconFactory::class)->svg($icon) !== null;
+                            $icon = ($icon_exists) ? $icon : 'heroicon-o-information-circle';
+                        }
+                        catch(\Exception $e)
+                        {
+                            $icon = 'heroicon-m-exclamation-triangle';
+                        }
+
+                        return NavigationItem::make($page->title)
+                            ->url('/')
+                            // ->url(route('filament.admin.resources.projects.view', $project))
+                            ->icon($icon)
+                            ->group($group)
+                            ->sort($page->nav_order);
+                    });
+
+        return $pages->toArray();
+    }
+
+    /**
+     * Generate + customize the navigation groups
+     * 
+     * @return array
+     */
+    private function generateNavigationGroups()
+    {
+        // Query the topics
+        return Topic::query()
+                    ->has('pages', '>', 0)
+                    ->orderBy('nav_order')
+                    ->pluck('title')
+                    ->toArray();
     }
 }

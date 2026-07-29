@@ -83,6 +83,12 @@ class HelpPageForm
                                     ->default(Status::DRAFT->value)
                                     ->required()
                                     ->inline(),
+                                
+                                TextInput::make('nav_order')
+                                    ->label('Order in navigation')
+                                    ->belowLabel('Set the display order for this page within its topic. Lower numbers appear first.')
+                                    ->numeric()
+                                    ->step(1),
 
                                 TextInput::make('slug')
                                     ->label('Page slug')
