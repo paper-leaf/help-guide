@@ -2,14 +2,13 @@
 
 namespace PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Tables;
 
-use Illuminate\Database\Eloquent\Builder;
-
 use Filament\Actions\ActionGroup;
-use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class HelpPagesTable
 {
@@ -59,7 +58,7 @@ class HelpPagesTable
 
                     DeleteAction::make()
                         ->color('danger'),
-                ])
+                ]),
             ]);
     }
 }

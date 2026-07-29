@@ -2,11 +2,9 @@
 
 namespace PaperLeaf\HelpGuide\Filament\Resources\Topics\Tables;
 
-use Illuminate\Database\Eloquent\Builder;
-
-use Filament\Actions\EditAction;
-use Filament\Actions\DeleteAction;
 use Filament\Actions\ActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -38,7 +36,7 @@ class TopicsTable
 
                     DeleteAction::make()
                         ->color('danger'),
-                ])
+                ]),
             ]);
     }
 }

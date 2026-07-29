@@ -9,8 +9,8 @@ namespace PaperLeaf\HelpGuide\Pages;
 // use Illuminate\Mail\Message;
 // use Illuminate\Contracts\Support\Htmlable;
 
-use Filament\Pages\Page;
 use BackedEnum;
+use Filament\Pages\Page;
 use Filament\Support\Icons\Heroicon;
 
 // use Filament\Schemas\Schema;
@@ -40,5 +40,6 @@ class WelcomePage extends Page
     protected string $view = 'help-guide::pages.welcome-page';
 
     protected static ?string $title = 'Home';
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedHome;
+
+    protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedHome;
 }

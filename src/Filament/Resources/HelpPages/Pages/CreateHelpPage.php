@@ -2,9 +2,9 @@
 
 namespace PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages;
 
-use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
-use Filament\Resources\Pages\CreateRecord;
 use Filament\Actions\Action;
+use Filament\Resources\Pages\CreateRecord;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 
 class CreateHelpPage extends CreateRecord
 {
