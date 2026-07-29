@@ -88,6 +88,7 @@ class HelpPageForm
                                     ->label('Order in navigation')
                                     ->belowLabel('Set the display order for this page within its topic. Lower numbers appear first.')
                                     ->numeric()
+                                    ->default(1)
                                     ->step(1),
 
                                 TextInput::make('slug')
