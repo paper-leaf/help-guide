@@ -2,12 +2,12 @@
 
 namespace PaperLeaf\HelpGuide\Models;
 
-use Illuminate\Support\Str;
+use BladeUI\Icons\Factory as IconFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Pages\ViewHelpPage;
-use BladeUI\Icons\Factory as IconFactory;
 
 class HelpPage extends Model
 {
@@ -66,6 +66,7 @@ class HelpPage extends Model
     {
         // Make sure the page icon exists before using it
         $default_icon = 'heroicon-o-information-circle';
+
         try {
             $icon = Str::start($this->icon, 'heroicon-');
             $icon_exists = app(IconFactory::class)->svg($icon) !== null;

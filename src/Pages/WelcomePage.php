@@ -5,8 +5,8 @@ namespace PaperLeaf\HelpGuide\Pages;
 use BackedEnum;
 use Filament\Pages\Page;
 use Filament\Support\Icons\Heroicon;
+use Illuminate\Contracts\Support\Htmlable;
 use Livewire\Attributes\Computed;
-
 use PaperLeaf\HelpGuide\Models\HelpPage;
 
 class WelcomePage extends Page
@@ -15,7 +15,7 @@ class WelcomePage extends Page
 
     protected static ?string $title = 'Home';
 
-    public function getHeading(): string | \Illuminate\Contracts\Support\Htmlable | null
+    public function getHeading(): string | Htmlable | null
     {
         return '';
     }
@@ -26,7 +26,7 @@ class WelcomePage extends Page
     public function featuredArticles()
     {
         return HelpPage::query()
-                    ->where('is_featured', true)
-                    ->get();
+            ->where('is_featured', true)
+            ->get();
     }
 }
