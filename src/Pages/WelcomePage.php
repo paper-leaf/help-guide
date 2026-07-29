@@ -2,38 +2,12 @@
 
 namespace PaperLeaf\HelpGuide\Pages;
 
-// use Exception;
-// use Livewire\Attributes\Computed;
-// use Illuminate\Support\Facades\Artisan;
-// use Illuminate\Support\Facades\Mail;
-// use Illuminate\Mail\Message;
-// use Illuminate\Contracts\Support\Htmlable;
-
 use BackedEnum;
 use Filament\Pages\Page;
 use Filament\Support\Icons\Heroicon;
+use Livewire\Attributes\Computed;
 
-// use Filament\Schemas\Schema;
-// use Filament\Schemas\Components\Livewire;
-// use Filament\Schemas\Components\Tabs;
-// use Filament\Schemas\Components\Tabs\Tab;
-// use Filament\Schemas\Components\Grid;
-// use Filament\Actions\Action;
-
-// use PaperLeaf\MissionControl\MissionControlPlugin;
-
-// use PaperLeaf\MissionControl\Widgets\EnvironmentWidget;
-// use PaperLeaf\MissionControl\Widgets\EmailsWidget;
-// use PaperLeaf\MissionControl\Widgets\NotificationsWidget;
-// use PaperLeaf\MissionControl\Widgets\QueuesWidget;
-// use PaperLeaf\MissionControl\Widgets\CacheWidget;
-// use PaperLeaf\MissionControl\Widgets\FilesWidget;
-// use PaperLeaf\MissionControl\Widgets\MonitoringTableWidget;
-// use PaperLeaf\MissionControl\Widgets\PackagesTableWidget;
-// use PaperLeaf\MissionControl\Widgets\PhpWidget;
-// use PaperLeaf\MissionControl\Widgets\ServerWidget;
-// use PaperLeaf\MissionControl\Widgets\DatabaseWidget;
-// use PaperLeaf\MissionControl\Widgets\DeploymentWidget;
+use PaperLeaf\HelpGuide\Models\HelpPage;
 
 class WelcomePage extends Page
 {
@@ -41,5 +15,18 @@ class WelcomePage extends Page
 
     protected static ?string $title = 'Home';
 
+    public function getHeading(): string | \Illuminate\Contracts\Support\Htmlable | null
+    {
+        return '';
+    }
+
     protected static string | BackedEnum | null $navigationIcon = Heroicon::OutlinedHome;
+
+    #[Computed]
+    public function featuredArticles()
+    {
+        return HelpPage::query()
+                    ->where('is_featured', true)
+                    ->get();
+    }
 }

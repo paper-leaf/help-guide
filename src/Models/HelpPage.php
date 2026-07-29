@@ -2,10 +2,12 @@
 
 namespace PaperLeaf\HelpGuide\Models;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Pages\ViewHelpPage;
+use BladeUI\Icons\Factory as IconFactory;
 
 class HelpPage extends Model
 {
@@ -25,6 +27,7 @@ class HelpPage extends Model
         'title',
         'slug',
         'status',
+        'is_featured',
         'description',
         'topic_id',
         'icon',
@@ -53,6 +56,26 @@ class HelpPage extends Model
 
         return Attribute::make(
             get: fn () => $url,
+        );
+    }
+
+    /**
+     * Create the verified (safe) icon for display
+     */
+    protected function safeIcon(): Attribute
+    {
+        // Make sure the page icon exists before using it
+        $default_icon = 'heroicon-o-information-circle';
+        try {
+            $icon = Str::start($this->icon, 'heroicon-');
+            $icon_exists = app(IconFactory::class)->svg($icon) !== null;
+            $icon = ($icon_exists) ? $icon : $default_icon;
+        } catch (\Exception $e) {
+            $icon = $default_icon;
+        }
+
+        return Attribute::make(
+            get: fn () => $icon,
         );
     }
 

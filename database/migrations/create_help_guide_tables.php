@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->enum('status', ['draft', 'published'])->default('draft');
+            $table->boolean('is_featured')->default(false);
             $table->string('description')->nullable();
             $table->foreignId('topic_id')
                 ->nullable()

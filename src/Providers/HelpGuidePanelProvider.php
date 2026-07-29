@@ -2,7 +2,6 @@
 
 namespace PaperLeaf\HelpGuide\Providers;
 
-use BladeUI\Icons\Factory as IconFactory;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationItem;
@@ -83,21 +82,12 @@ class HelpGuidePanelProvider extends PanelProvider
                 $topic = $page->topic;
                 $group = (isset($topic)) ? $topic->title : 'Uncategorized';
 
-                // Make sure the page icon exists
-                try {
-                    $icon = Str::start($page->icon, 'heroicon-');
-                    $icon_exists = app(IconFactory::class)->svg($icon) !== null;
-                    $icon = ($icon_exists) ? $icon : 'heroicon-o-information-circle';
-                } catch (\Exception $e) {
-                    $icon = 'heroicon-m-exclamation-triangle';
-                }
-
                 $route_name = 'filament.help-guide.manage.resources.help-pages.view';
 
                 return NavigationItem::make($page->title)
                     ->url(fn () => $page->page_url)
                     ->isActiveWhen(fn () => request()->url() === $page->page_url)
-                    ->icon($icon)
+                    ->icon($page->safe_icon)
                     ->group($group)
                     ->sort($page->nav_order);
             });

@@ -7,6 +7,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextArea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -83,6 +84,10 @@ class HelpPageForm
                                     ->default(Status::DRAFT->value)
                                     ->required()
                                     ->inline(),
+
+                                Toggle::make('is_featured')
+                                    ->label('Featured page')
+                                    ->belowLabel('Feature this page on the main dashboard and in the sidebar'),
 
                                 TextInput::make('nav_order')
                                     ->label('Order in navigation')
