@@ -2,29 +2,30 @@
 
 namespace PaperLeaf\HelpGuide\Filament\Resources\HelpPages;
 
-use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages\ListHelpPages;
-use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages\ViewHelpPage;
-use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages\CreateHelpPage;
-use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages\EditHelpPage;
-use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Schemas\HelpPageForm;
-use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Schemas\LocalInfolist;
-use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Tables\HelpPagesTable;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-
-use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Filament\Clusters\ManageCluster;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages\CreateHelpPage;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages\EditHelpPage;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages\ListHelpPages;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages\ViewHelpPage;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Schemas\HelpPageForm;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Schemas\LocalInfolist;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Tables\HelpPagesTable;
+use PaperLeaf\HelpGuide\Models\HelpPage;
 
 class HelpPagesResource extends Resource
 {
     protected static ?string $model = HelpPage::class;
 
     protected static ?int $navigationSort = 5;
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document';
+
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-document';
+
     protected static ?string $cluster = ManageCluster::class;
+
     protected static ?string $navigationLabel = 'Pages';
 
     public static function form(Schema $schema): Schema

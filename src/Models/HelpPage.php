@@ -3,9 +3,6 @@
 namespace PaperLeaf\HelpGuide\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Builder;
-
 use PaperLeaf\HelpGuide\Models\Enums\Status;
 
 class HelpPage extends Model

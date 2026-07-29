@@ -2,8 +2,8 @@
 
 namespace PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages;
 
-use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 use Filament\Resources\Pages\EditRecord;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 
 class EditHelpPage extends EditRecord
 {

@@ -2,10 +2,10 @@
 
 namespace PaperLeaf\HelpGuide\Models\Enums;
 
-use Filament\Support\Contracts\HasLabel;
 use Filament\Support\Contracts\HasColor;
+use Filament\Support\Contracts\HasLabel;
 
-enum Status: string implements HasLabel, HasColor
+enum Status: string implements HasColor, HasLabel
 {
     case DRAFT = 'draft';
     case PUBLISHED = 'published';
