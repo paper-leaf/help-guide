@@ -28,6 +28,7 @@ class HelpPage extends Model
         'icon',
         'content',
         'viewable_by_role',
+        'nav_order',
     ];
 
     /**

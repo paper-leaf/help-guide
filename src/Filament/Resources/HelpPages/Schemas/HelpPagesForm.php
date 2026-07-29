@@ -51,8 +51,9 @@ class HelpPageForm
                                     ->searchable(),
 
                                 TextInput::make('icon')
-                                    ->belowLabel('Select an icon to represent this page in the navigation.')
-                                    ->required(),
+                                    ->required()
+                                    ->belowLabel('Set an icon to represent this page in the navigation.')
+                                    ->placeholder('heroicon-o-face-smile'),
 
                                 TextArea::make('description')
                                     ->label('Short description')
@@ -82,6 +83,12 @@ class HelpPageForm
                                     ->default(Status::DRAFT->value)
                                     ->required()
                                     ->inline(),
+
+                                TextInput::make('nav_order')
+                                    ->label('Order in navigation')
+                                    ->belowLabel('Set the display order for this page within its topic. Lower numbers appear first.')
+                                    ->numeric()
+                                    ->step(1),
 
                                 TextInput::make('slug')
                                     ->label('Page slug')

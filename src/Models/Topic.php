@@ -22,6 +22,7 @@ class Topic extends Model
         'title',
         'slug',
         'description',
+        'nav_order',
     ];
 
     /**

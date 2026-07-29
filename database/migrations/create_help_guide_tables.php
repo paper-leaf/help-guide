@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('description')->nullable();
+            $table->int('nav_order')->default(0);
             $table->timestamps();
         });
 
@@ -29,6 +30,7 @@ return new class extends Migration
             $table->string('icon')->default('heroicon-o-information-circle');
             $table->longText('content')->nullable();
             $table->string('viewable_by_role')->nullable();
+            $table->int('nav_order')->default(0);
             $table->timestamps();
         });
     }

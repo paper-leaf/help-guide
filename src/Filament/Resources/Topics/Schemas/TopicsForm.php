@@ -5,6 +5,7 @@ namespace PaperLeaf\HelpGuide\Filament\Resources\Topics\Schemas;
 use Filament\Forms\Components\TextArea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Str;
 
 class TopicForm
 {
@@ -15,13 +16,29 @@ class TopicForm
                 TextInput::make('title')
                     ->label('Topic')
                     ->required()
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(function (?string $state, ?string $old, $set) {
+                        // Don't make any dynamic changes if a value is previously set
+                        if (isset($old) && $old != '') {
+                            return;
+                        }
+
+                        // Create a slug from the page title
+                        $slug = Str::slug($state);
+                        $set('slug', $slug);
+                    }),
 
                 TextInput::make('slug')
                     ->label('Page slug')
                     ->belowLabel('Set the URL slug for the page that displays all help pages for this topic.')
-                    ->required()
-                    ->columnSpanFull(),
+                    ->required(),
+
+                TextInput::make('nav_order')
+                    ->label('Order in navigation')
+                    ->belowLabel('Set the display order for this page within its topic. Lower numbers appear first.')
+                    ->numeric()
+                    ->step(1),
 
                 TextArea::make('description')
                     ->label('Short description')
