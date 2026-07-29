@@ -2,22 +2,14 @@
 
 namespace PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Schemas;
 
+use App\Models\Enums\Status;
+use Filament\Actions\Action;
+use Filament\Actions\EditAction;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Notifications\Notification;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\Size;
-
-use Filament\Actions\EditAction;
-use Filament\Actions\Action;
-use Filament\Notifications\Notification;
-
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Components\Grid;
-use Filament\Schemas\Components\Flex;
-use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Components\IconEntry;
-
-use App\Helpers\FormattingHelper;
-
-use App\Models\Enums\Status;
 
 class LocalInfolist
 {
@@ -116,10 +108,10 @@ class LocalInfolist
                 //             ->authorize('update')
                 //             ->extraAttributes(['class' => 'block -mt-2'])
                 //             ->modal()
-                //             ->after(function ($livewire) { 
+                //             ->after(function ($livewire) {
                 //                 $livewire->dispatch('refresh-logs');
                 //             }),
-                    // ]),
+                // ]),
             ]);
     }
 }

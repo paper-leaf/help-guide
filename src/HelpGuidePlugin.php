@@ -4,7 +4,6 @@ namespace PaperLeaf\HelpGuide;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 
 class HelpGuidePlugin implements Plugin

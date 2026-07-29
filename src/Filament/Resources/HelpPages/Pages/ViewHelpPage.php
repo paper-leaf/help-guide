@@ -2,9 +2,8 @@
 
 namespace PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Pages;
 
-use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
-use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 
 class ViewHelpPage extends ViewRecord
 {

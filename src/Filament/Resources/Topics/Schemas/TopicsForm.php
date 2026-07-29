@@ -2,12 +2,9 @@
 
 namespace PaperLeaf\HelpGuide\Filament\Resources\Topics\Schemas;
 
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TextArea;
-use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
-
-use PaperLeaf\HelpGuide\Models\Topic;
 
 class TopicForm
 {
