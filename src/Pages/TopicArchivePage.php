@@ -3,12 +3,8 @@
 namespace PaperLeaf\HelpGuide\Pages;
 
 use Filament\Pages\Page;
-use Illuminate\Support\Str;
 use Livewire\Attributes\Computed;
-use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
-use PaperLeaf\HelpGuide\Models\Enums\Status;
-use PaperLeaf\HelpGuide\Pages\WelcomePage;
 
 class TopicArchivePage extends Page
 {
@@ -46,7 +42,7 @@ class TopicArchivePage extends Page
     public function helpPages()
     {
         return $this->record->pages()
-                ->orderBy('nav_order')
-                ->get();
+            ->orderBy('nav_order')
+            ->get();
     }
 }
