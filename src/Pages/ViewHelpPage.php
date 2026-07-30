@@ -2,14 +2,11 @@
 
 namespace PaperLeaf\HelpGuide\Pages;
 
+use Filament\Pages\Page;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Computed;
-
-use Filament\Pages\Page;
-
 use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
-use PaperLeaf\HelpGuide\Pages\WelcomePage;
 
 class ViewHelpPage extends Page
 {
@@ -50,7 +47,7 @@ class ViewHelpPage extends Page
             WelcomePage::getUrl() => 'Home',
         ];
 
-        if(isset($this->topic)) {
+        if (isset($this->topic)) {
             $breadcrumbs[$this->topic->page_url] = $this->topic->title;
         }
 
@@ -59,7 +56,7 @@ class ViewHelpPage extends Page
         return $breadcrumbs;
 
         return [
-            
+
             route('filament.admin.pages.dashboard') => 'Dashboard',
             // Add your current or intermediate custom paths here
             '' => $this->record->title,
@@ -75,19 +72,19 @@ class ViewHelpPage extends Page
     /**
      * Parse page content to make all headings linked
      * Save the list of headings for use in an on-page nav
-     * 
-     * @param string $html
+     *
+     * @param  string  $html
      * @return string $html
      */
     public function parseHtml($html)
     {
         // 1. Initialize DOMDocument and suppress parsing warnings
-        $dom = new \DOMDocument();
+        $dom = new \DOMDocument;
         libxml_use_internal_errors(true);
-        
+
         // Load HTML using UTF-8 encoding configuration
         $dom->loadHTML(
-            '<?xml encoding="utf-8" ?>' . $html, 
+            '<?xml encoding="utf-8" ?>' . $html,
             LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD
         );
         libxml_clear_errors();
@@ -102,15 +99,17 @@ class ViewHelpPage extends Page
 
         // The stack holds references to the 'children' arrays at each heading level
         $stack = [
-            0 => &$nav_tree // Level 0 represents the root of our tree
+            0 => &$nav_tree, // Level 0 represents the root of our tree
         ];
 
         foreach ($heading_nodes as $heading) {
             $text = trim($heading->textContent);
-            if ($text === '') continue;
+            if ($text === '') {
+                continue;
+            }
 
             // Determine numerical level (e.g., "h2" -> 2)
-            $current_level = (int)substr($heading->tagName, 1);
+            $current_level = (int) substr($heading->tagName, 1);
 
             // 3. Generate uniform slug and inject the link into DOM
             $slug = Str::slug($text);
@@ -122,15 +121,14 @@ class ViewHelpPage extends Page
             $node = [
                 'text' => $text,
                 'url' => $heading_url,
-                'children' => []
+                'children' => [],
             ];
 
             // 4. Directly sort the element by tag type
             if ($heading->tagName === 'h2') {
                 $nav_tree[] = $node;
                 $current_h2_index = count($nav_tree) - 1; // Update index to point to this new H2
-            } 
-            elseif ($heading->tagName === 'h3') {
+            } elseif ($heading->tagName === 'h3') {
                 if ($current_h2_index !== null) {
                     // Nest directly under the active H2 parent
                     $nav_tree[$current_h2_index]['children'][] = $node;
