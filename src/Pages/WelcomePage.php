@@ -14,6 +14,7 @@ class WelcomePage extends Page
     protected string $view = 'help-guide::pages.welcome-page';
 
     protected static ?string $title = 'Home';
+    protected static ?string $slug = 'welcome';
 
     public function getHeading(): string | \Illuminate\Contracts\Support\Htmlable | null
     {
