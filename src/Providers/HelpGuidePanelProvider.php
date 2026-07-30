@@ -19,6 +19,7 @@ use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
 use PaperLeaf\HelpGuide\Pages\ViewHelpPage;
+use PaperLeaf\HelpGuide\Pages\TopicArchivePage;
 use PaperLeaf\HelpGuide\Pages\WelcomePage;
 
 class HelpGuidePanelProvider extends PanelProvider
@@ -42,6 +43,7 @@ class HelpGuidePanelProvider extends PanelProvider
             ->pages([
                 WelcomePage::class,
                 ViewHelpPage::class,
+                TopicArchivePage::class,
             ])
             ->authGuard('web')
             ->authMiddleware([

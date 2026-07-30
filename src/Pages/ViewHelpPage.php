@@ -56,13 +56,6 @@ class ViewHelpPage extends Page
         $breadcrumbs[''] = $this->record->title;
 
         return $breadcrumbs;
-
-        return [
-
-            route('filament.admin.pages.dashboard') => 'Dashboard',
-            // Add your current or intermediate custom paths here
-            '' => $this->record->title,
-        ];
     }
 
     #[Computed]

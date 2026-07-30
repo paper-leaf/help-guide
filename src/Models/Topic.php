@@ -4,6 +4,7 @@ namespace PaperLeaf\HelpGuide\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use PaperLeaf\HelpGuide\Pages\TopicArchivePage;
 
 class Topic extends Model
 {
@@ -26,21 +27,23 @@ class Topic extends Model
         'nav_order',
     ];
 
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
+
     /**
      * Create the URL to this page
      */
     protected function pageUrl(): Attribute
     {
-        // $topic = optional($this->topic)->slug;
-        // $topic = (isset($topic)) ? $topic : 'uncategorized';
-
-        // $url = ViewHelpPage::getUrl([
-        //     'record' => $this->slug,
-        //     'topic' => $topic,
-        // ]);
+        $url = TopicArchivePage::getUrl([
+            'record' => $this->slug,
+        ]);
 
         return Attribute::make(
-            get: fn () => '/',
+            get: fn () => $url,
         );
     }
 
