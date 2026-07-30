@@ -14,6 +14,7 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Models\Topic;
+use PaperLeaf\HelpGuide\Models\HelpPage;
 
 class HelpPageForm
 {
@@ -70,6 +71,15 @@ class HelpPageForm
                                         ['bulletList', 'orderedList'],
                                         ['undo', 'redo', 'clearFormatting'],
                                     ]),
+
+                                Select::make('related_pages')
+                                    ->options(function() {
+                                        return HelpPage::where('status', STATUS::PUBLISHED)
+                                                ->pluck('title', 'id');
+                                    })
+                                    ->searchable()
+                                    ->reorderable()
+                                    ->multiple()
                             ]),
 
                         Section::make()

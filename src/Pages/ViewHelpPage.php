@@ -9,6 +9,7 @@ use Filament\Pages\Page;
 
 use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
+use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Pages\WelcomePage;
 
 class ViewHelpPage extends Page
@@ -64,6 +65,23 @@ class ViewHelpPage extends Page
             // Add your current or intermediate custom paths here
             '' => $this->record->title,
         ];
+    }
+
+    #[Computed]
+    public function relatedPages()
+    {
+        if(!is_array($this->record->related_pages) || count($this->record->related_pages) == 0) {
+            return collect([]);
+        }
+
+        $pages = HelpPage::whereIn('id', $this->record->related_pages)
+                    ->where('status', Status::PUBLISHED)
+                    ->get()
+                    ->sortBy(function ($page) {
+                        return array_search($page->id, $this->record->related_pages);
+                    })->values();
+
+        return $pages;
     }
 
     #[Computed]
@@ -143,6 +161,15 @@ class ViewHelpPage extends Page
 
         // Save the stack of headings to display in the on-page nav
         $this->headings_on_page = $nav_tree;
+
+        // Check if we have a dynamically added related documentation section
+        if($this->related_pages->count() > 0) {
+            $this->headings_on_page[] = [
+                'text' => 'Related documentation',
+                'url' => '#related-documentation',
+                'children' => []
+            ];
+        }
 
         return $dom->saveHTML();
     }

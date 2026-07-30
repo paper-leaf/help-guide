@@ -32,6 +32,7 @@ return new class extends Migration
             $table->longText('content')->nullable();
             $table->string('viewable_by_role')->nullable();
             $table->int('nav_order')->default(0);
+            $table->json('related_pages')->nullable();
             $table->timestamps();
         });
     }
