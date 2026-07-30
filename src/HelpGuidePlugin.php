@@ -11,6 +11,7 @@ class HelpGuidePlugin implements Plugin
     public const ID = 'help-guide';
 
     protected ?string $login_url = '/admin/login';
+
     protected ?string $base_panel_key = 'app';
 
     public function getId(): string

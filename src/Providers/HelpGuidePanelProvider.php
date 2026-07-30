@@ -2,12 +2,12 @@
 
 namespace PaperLeaf\HelpGuide\Providers;
 
+use Filament\Facades\Filament;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationItem;
 use Filament\Panel;
 use Filament\PanelProvider;
-use Filament\Facades\Filament;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -52,10 +52,10 @@ class HelpGuidePanelProvider extends PanelProvider
                 RedirectGuests::class,
             ])
             ->viteTheme('resources/css/app.css')
-            ->brandName(fn() => Filament::getDefaultPanel()->getBrandName())
-            ->brandLogo(fn() => Filament::getDefaultPanel()->getBrandLogo())
-            ->brandLogoHeight(fn() => Filament::getDefaultPanel()->getBrandLogoHeight())
-            ->favicon(fn() => Filament::getDefaultPanel()->getFavicon())
+            ->brandName(fn () => Filament::getDefaultPanel()->getBrandName())
+            ->brandLogo(fn () => Filament::getDefaultPanel()->getBrandLogo())
+            ->brandLogoHeight(fn () => Filament::getDefaultPanel()->getBrandLogoHeight())
+            ->favicon(fn () => Filament::getDefaultPanel()->getFavicon())
             ->discoverClusters(
                 in: __DIR__ . '/../Filament/Clusters',
                 for: 'PaperLeaf\\HelpGuide\\Filament\\Clusters'
