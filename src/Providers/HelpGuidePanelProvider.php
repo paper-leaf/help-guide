@@ -19,8 +19,8 @@ use PaperLeaf\HelpGuide\Http\Middleware\RedirectGuests;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
-use PaperLeaf\HelpGuide\Pages\ViewHelpPage;
 use PaperLeaf\HelpGuide\Pages\TopicArchivePage;
+use PaperLeaf\HelpGuide\Pages\ViewHelpPage;
 use PaperLeaf\HelpGuide\Pages\WelcomePage;
 
 class HelpGuidePanelProvider extends PanelProvider

@@ -32,7 +32,6 @@ class Topic extends Model
         return 'slug';
     }
 
-
     /**
      * Create the URL to this page
      */
