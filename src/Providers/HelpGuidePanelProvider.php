@@ -13,7 +13,6 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
-use Illuminate\Support\Str;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use PaperLeaf\HelpGuide\Http\Middleware\RedirectGuests;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
