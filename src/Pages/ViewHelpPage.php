@@ -5,10 +5,9 @@ namespace PaperLeaf\HelpGuide\Pages;
 use Filament\Pages\Page;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Computed;
+use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
-use PaperLeaf\HelpGuide\Models\Enums\Status;
-use PaperLeaf\HelpGuide\Pages\WelcomePage;
 
 class ViewHelpPage extends Page
 {
@@ -68,16 +67,16 @@ class ViewHelpPage extends Page
     #[Computed]
     public function relatedPages()
     {
-        if(!is_array($this->record->related_pages) || count($this->record->related_pages) == 0) {
+        if (! is_array($this->record->related_pages) || count($this->record->related_pages) == 0) {
             return collect([]);
         }
 
         $pages = HelpPage::whereIn('id', $this->record->related_pages)
-                    ->where('status', Status::PUBLISHED)
-                    ->get()
-                    ->sortBy(function ($page) {
-                        return array_search($page->id, $this->record->related_pages);
-                    })->values();
+            ->where('status', Status::PUBLISHED)
+            ->get()
+            ->sortBy(function ($page) {
+                return array_search($page->id, $this->record->related_pages);
+            })->values();
 
         return $pages;
     }
@@ -162,11 +161,11 @@ class ViewHelpPage extends Page
         $this->headings_on_page = $nav_tree;
 
         // Check if we have a dynamically added related documentation section
-        if($this->related_pages->count() > 0) {
+        if ($this->related_pages->count() > 0) {
             $this->headings_on_page[] = [
                 'text' => 'Related documentation',
                 'url' => '#related-documentation',
-                'children' => []
+                'children' => [],
             ];
         }
 

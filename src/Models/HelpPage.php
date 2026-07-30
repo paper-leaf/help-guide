@@ -34,7 +34,7 @@ class HelpPage extends Model
         'content',
         'viewable_by_role',
         'nav_order',
-        'related_pages'
+        'related_pages',
     ];
 
     public function getRouteKeyName(): string
@@ -90,7 +90,7 @@ class HelpPage extends Model
     {
         return [
             'status' => Status::class,
-            'related_pages' => 'array'
+            'related_pages' => 'array',
         ];
     }
 
