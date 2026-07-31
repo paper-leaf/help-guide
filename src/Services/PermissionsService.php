@@ -41,8 +41,8 @@ class PermissionsService
 
     /**
      * Check if a user has any of an array of permissions
-     * 
-     * @param array $permissions
+     *
+     * @param  array  $permissions
      * @return bool
      */
     public function hasAnyPermissions($permissions)

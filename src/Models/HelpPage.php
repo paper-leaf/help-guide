@@ -118,18 +118,19 @@ class HelpPage extends Model
 
     /**
      * Check if this page can be viewed by the current user
-     * 
+     *
      * @return bool
      */
     public function canView()
     {
         // Check if there's any permissions even saved on this page
-        if(!isset($this->required_permissions)) {
+        if (! isset($this->required_permissions)) {
             return true;
         }
 
         // Evaluate the permissions
         $can_view = new PermissionsService()->hasAnyPermissions($this->required_permissions);
+
         return $can_view;
     }
 }

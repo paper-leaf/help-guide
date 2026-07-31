@@ -93,7 +93,7 @@ class HelpGuidePanelProvider extends PanelProvider
                     ->icon($page->safe_icon)
                     ->group($group)
                     ->sort($page->nav_order)
-                    ->visible(fn() => $page->canView());
+                    ->visible(fn () => $page->canView());
             });
 
         return $pages->toArray();
