@@ -26,7 +26,7 @@ class PermissionsService
     {
         $edit_permission = $this->plugin->getManageGuidePermission();
 
-        return optional($this->user)->can($edit_permission);
+        return $this->user->can($edit_permission);
     }
 
     /**
@@ -37,5 +37,16 @@ class PermissionsService
     public function permissionsList()
     {
         return $this->plugin->getAvailablePermissions();
+    }
+
+    /**
+     * Check if a user has any of an array of permissions
+     * 
+     * @param array $permissions
+     * @return bool
+     */
+    public function hasAnyPermissions($permissions)
+    {
+        return $this->user->canAny($permissions);
     }
 }

@@ -92,7 +92,8 @@ class HelpGuidePanelProvider extends PanelProvider
                     ->isActiveWhen(fn () => request()->url() === $page->page_url)
                     ->icon($page->safe_icon)
                     ->group($group)
-                    ->sort($page->nav_order);
+                    ->sort($page->nav_order)
+                    ->visible(fn() => $page->canView());
             });
 
         return $pages->toArray();
