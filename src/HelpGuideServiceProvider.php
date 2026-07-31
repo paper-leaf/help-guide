@@ -67,8 +67,8 @@ class HelpGuideServiceProvider extends PackageServiceProvider
         //         return;
         //     }
 
-            // Register the custom Help Guide panel
-            $this->app->register(HelpGuidePanelProvider::class);
+        // Register the custom Help Guide panel
+        $this->app->register(HelpGuidePanelProvider::class);
         // });
     }
 

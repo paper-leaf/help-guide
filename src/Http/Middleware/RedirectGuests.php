@@ -3,9 +3,9 @@
 namespace PaperLeaf\HelpGuide\Http\Middleware;
 
 use Closure;
+use Filament\Facades\Filament;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Filament\Facades\Filament;
 use Illuminate\Support\Str;
 use PaperLeaf\HelpGuide\HelpGuidePlugin;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +19,7 @@ class RedirectGuests
             $panel = Filament::getDefaultPanel();
             $plugin = $panel->getPlugin(HelpGuidePlugin::ID);
             $login = Str::start($plugin->getLoginUrl(), '/');
-            
+
             return redirect($login);
         }
 
