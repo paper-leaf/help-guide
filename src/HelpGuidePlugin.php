@@ -2,11 +2,10 @@
 
 namespace PaperLeaf\HelpGuide;
 
+use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use Closure;
 use Filament\Support\Concerns\EvaluatesClosures;
-
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 
 class HelpGuidePlugin implements Plugin
@@ -16,7 +15,9 @@ class HelpGuidePlugin implements Plugin
     public const ID = 'help-guide';
 
     protected ?string $login_url = '/admin/login';
+
     protected $manage_guide_permission = '';
+
     protected $available_permissions = [];
 
     public function getId(): string
@@ -59,6 +60,7 @@ class HelpGuidePlugin implements Plugin
     public function loginUrl(?string $login_url): static
     {
         $this->login_url = $login_url;
+
         return $this;
     }
 
@@ -73,6 +75,7 @@ class HelpGuidePlugin implements Plugin
     public function manageGuidePermission(string | Closure | null $manage_guide_permission): static
     {
         $this->manage_guide_permission = $manage_guide_permission;
+
         return $this;
     }
 
@@ -88,6 +91,7 @@ class HelpGuidePlugin implements Plugin
     public function availablePermissions(bool | Closure | null $available_permissions): static
     {
         $this->available_permissions = $available_permissions;
+
         return $this;
     }
 

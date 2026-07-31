@@ -8,6 +8,7 @@ use PaperLeaf\HelpGuide\HelpGuidePlugin;
 class PermissionsService
 {
     public $plugin;
+
     public $user;
 
     public function __construct()
@@ -22,6 +23,7 @@ class PermissionsService
     public function canManageGuide()
     {
         $edit_permission = $this->plugin->getManageGuidePermission();
+
         return optional($this->user)->can($edit_permission);
     }
 }

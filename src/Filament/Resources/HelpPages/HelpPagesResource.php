@@ -30,7 +30,8 @@ class HelpPagesResource extends Resource
 
     public static function canAccess(): bool
     {
-        $service = new PermissionsService();
+        $service = new PermissionsService;
+
         return $service->canManageGuide();
     }
 

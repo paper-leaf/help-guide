@@ -15,7 +15,8 @@ class ManageCluster extends Cluster
 
     public static function canAccess(): bool
     {
-        $service = new PermissionsService();
+        $service = new PermissionsService;
+
         return $service->canManageGuide();
     }
 }
