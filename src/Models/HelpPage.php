@@ -103,4 +103,14 @@ class HelpPage extends Model
     {
         return $this->belongsTo(Topic::class);
     }
+
+    /**
+     * Check if this page is published
+     * 
+     * @return bool
+     */
+    public function isPublished()
+    {
+        return $this->status == Status::PUBLISHED;
+    }
 }

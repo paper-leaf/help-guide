@@ -5,6 +5,7 @@ namespace PaperLeaf\HelpGuide\Pages;
 use Filament\Actions\Action;
 use Filament\Pages\Page;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Route;
 use Livewire\Attributes\Computed;
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
@@ -33,6 +34,22 @@ class ViewHelpPage extends Page
     public HelpPage $record;
 
     public $topic;
+
+    public static function canAccess(): bool
+    {
+        $record = Route::current()?->parameter('record');
+        
+        // Don't allow view access to drafts at all
+        if(!$record->isPublished()) {
+            abort(404);
+        }
+
+        $service = new PermissionsService;
+
+        return $service->canManageGuide();
+    }
+
+    // SARAH HANDLE DRAFTS
 
     // These pages are registered dynamically in the HelpGuidePanelProvider
     public static function shouldRegisterNavigation(): bool
