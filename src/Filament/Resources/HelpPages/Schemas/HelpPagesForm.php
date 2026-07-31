@@ -115,6 +115,10 @@ class HelpPageForm
                                 Select::make('required_permissions')
                                     ->label('Page permissions')
                                     ->belowLabel('Users with any selected permission can view this page. If none are selected, the page is visible to everyone.')
+                                    ->visible(function() {
+                                        $list = new PermissionsService()->permissionsList();
+                                        return count($list) != 0;
+                                    })
                                     ->options(fn() => new PermissionsService()->permissionsList())
                                     ->searchable()
                                     ->multiple()
