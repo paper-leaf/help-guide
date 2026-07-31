@@ -106,7 +106,7 @@ class HelpPage extends Model
 
     /**
      * Check if this page is published
-     * 
+     *
      * @return bool
      */
     public function isPublished()
