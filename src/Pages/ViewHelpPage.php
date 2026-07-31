@@ -44,12 +44,9 @@ class ViewHelpPage extends Page
             abort(404);
         }
 
-        $service = new PermissionsService;
-
-        return $service->canManageGuide();
+        // Check the user's access to this article
+        return $record->canView();
     }
-
-    // SARAH HANDLE DRAFTS
 
     // These pages are registered dynamically in the HelpGuidePanelProvider
     public static function shouldRegisterNavigation(): bool
