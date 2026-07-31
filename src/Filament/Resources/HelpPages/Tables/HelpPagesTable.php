@@ -35,8 +35,8 @@ class HelpPagesTable
                 ActionGroup::make([
                     ViewAction::make()
                         ->label('View page')
-                        ->url(fn($record) => $record->page_url)
-                        ->visible(fn($record) => $record->isPublished()),
+                        ->url(fn ($record) => $record->page_url)
+                        ->visible(fn ($record) => $record->isPublished()),
 
                     DeleteAction::make()
                         ->label('Delete page')

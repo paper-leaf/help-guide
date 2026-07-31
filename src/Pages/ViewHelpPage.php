@@ -4,8 +4,8 @@ namespace PaperLeaf\HelpGuide\Pages;
 
 use Filament\Actions\Action;
 use Filament\Pages\Page;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 use Livewire\Attributes\Computed;
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
@@ -38,9 +38,9 @@ class ViewHelpPage extends Page
     public static function canAccess(): bool
     {
         $record = Route::current()?->parameter('record');
-        
+
         // Don't allow view access to drafts at all
-        if(!$record->isPublished()) {
+        if (! $record->isPublished()) {
             abort(404);
         }
 
