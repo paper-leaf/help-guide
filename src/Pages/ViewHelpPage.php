@@ -8,6 +8,9 @@ use Livewire\Attributes\Computed;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
+use Filament\Actions\Action;
+use PaperLeaf\HelpGuide\Services\PermissionsService;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 
 class ViewHelpPage extends Page
 {
@@ -35,6 +38,18 @@ class ViewHelpPage extends Page
     public static function shouldRegisterNavigation(): bool
     {
         return false;
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Action::make('edit-page')
+                ->label('Edit page')
+                ->url(fn() => HelpPagesResource::getUrl('edit', ['record' => $this->record]))
+                ->visible(function() {
+                    return new PermissionsService()->canManageGuide();
+                }),
+        ];
     }
 
     public function mount($record, $topic): void
