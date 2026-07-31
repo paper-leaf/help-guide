@@ -28,16 +28,17 @@ class HelpPagesTable
             ])
             ->recordUrl(null)
             ->recordActions([
-                ViewAction::make()
+                EditAction::make()
                     ->button()
-                    ->url(fn ($record) => $record->page_url)
                     ->color('primary'),
 
                 ActionGroup::make([
-                    EditAction::make()
-                        ->color('primary'),
+                    ViewAction::make()
+                        ->label('View page')
+                        ->url(fn ($record) => $record->page_url),
 
                     DeleteAction::make()
+                        ->label('Delete page')
                         ->color('danger'),
                 ]),
             ]);

@@ -14,6 +14,7 @@ use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Schemas\HelpPageForm;
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Schemas\LocalInfolist;
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Tables\HelpPagesTable;
 use PaperLeaf\HelpGuide\Models\HelpPage;
+use PaperLeaf\HelpGuide\Services\PermissionsService;
 
 class HelpPagesResource extends Resource
 {
@@ -26,6 +27,12 @@ class HelpPagesResource extends Resource
     protected static ?string $cluster = ManageCluster::class;
 
     protected static ?string $navigationLabel = 'Pages';
+
+    public static function canAccess(): bool
+    {
+        $service = new PermissionsService();
+        return $service->canManageGuide();
+    }
 
     public static function form(Schema $schema): Schema
     {

@@ -12,6 +12,7 @@ use PaperLeaf\HelpGuide\Filament\Resources\Topics\Pages\ViewTopic;
 use PaperLeaf\HelpGuide\Filament\Resources\Topics\Schemas\TopicForm;
 use PaperLeaf\HelpGuide\Filament\Resources\Topics\Tables\TopicsTable;
 use PaperLeaf\HelpGuide\Models\Topic;
+use PaperLeaf\HelpGuide\Services\PermissionsService;
 
 class TopicsResource extends Resource
 {
@@ -24,6 +25,12 @@ class TopicsResource extends Resource
     protected static ?string $cluster = ManageCluster::class;
 
     protected static ?string $navigationLabel = 'Topics';
+
+    public static function canAccess(): bool
+    {
+        $service = new PermissionsService();
+        return $service->canManageGuide();
+    }
 
     public static function form(Schema $schema): Schema
     {

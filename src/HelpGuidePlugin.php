@@ -4,14 +4,20 @@ namespace PaperLeaf\HelpGuide;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Closure;
+use Filament\Support\Concerns\EvaluatesClosures;
+
 use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 
 class HelpGuidePlugin implements Plugin
 {
+    use EvaluatesClosures;
+
     public const ID = 'help-guide';
 
     protected ?string $login_url = '/admin/login';
-    protected ?string $base_panel_key = 'app';
+    protected $manage_guide_permission = '';
+    protected $available_permissions = [];
 
     public function getId(): string
     {
@@ -53,7 +59,6 @@ class HelpGuidePlugin implements Plugin
     public function loginUrl(?string $login_url): static
     {
         $this->login_url = $login_url;
-
         return $this;
     }
 
@@ -63,17 +68,31 @@ class HelpGuidePlugin implements Plugin
     }
 
     /**
-     * Setting the name of the base panel
+     * Setting the permission of when the guide can be edited
      */
-    public function basePanelKey(?string $base_panel_key): static
+    public function manageGuidePermission(string | Closure | null $manage_guide_permission): static
     {
-        $this->base_panel_key = $base_panel_key;
-
+        $this->manage_guide_permission = $manage_guide_permission;
         return $this;
     }
 
-    public function getbasePanelKey(): ?string
+    public function getManageGuidePermission(): ?string
     {
-        return value($this->base_panel_key);
+        return $this->evaluate($this->manage_guide_permission);
+    }
+
+    /**
+     * Setting the list of Permissions that are in the system
+     * These must be connected to the Gates in the base system
+     */
+    public function availablePermissions(bool | Closure | null $available_permissions): static
+    {
+        $this->available_permissions = $available_permissions;
+        return $this;
+    }
+
+    public function getavailablePermissions(): ?bool
+    {
+        return $this->evaluate($this->available_permissions);
     }
 }
