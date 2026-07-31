@@ -2,15 +2,15 @@
 
 namespace PaperLeaf\HelpGuide\Pages;
 
+use Filament\Actions\Action;
 use Filament\Pages\Page;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Computed;
+use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
-use Filament\Actions\Action;
 use PaperLeaf\HelpGuide\Services\PermissionsService;
-use PaperLeaf\HelpGuide\Filament\Resources\HelpPages\HelpPagesResource;
 
 class ViewHelpPage extends Page
 {
@@ -45,8 +45,8 @@ class ViewHelpPage extends Page
         return [
             Action::make('edit-page')
                 ->label('Edit page')
-                ->url(fn() => HelpPagesResource::getUrl('edit', ['record' => $this->record]))
-                ->visible(function() {
+                ->url(fn () => HelpPagesResource::getUrl('edit', ['record' => $this->record]))
+                ->visible(function () {
                     return new PermissionsService()->canManageGuide();
                 }),
         ];
