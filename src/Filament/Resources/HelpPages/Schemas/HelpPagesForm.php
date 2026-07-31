@@ -15,6 +15,7 @@ use Illuminate\Support\Str;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
+use PaperLeaf\HelpGuide\Services\PermissionsService;
 
 class HelpPageForm
 {
@@ -110,6 +111,13 @@ class HelpPageForm
                                     ->label('Page slug')
                                     ->required()
                                     ->unique(),
+
+                                Select::make('required_permissions')
+                                    ->label('Page permissions')
+                                    ->belowLabel('Users with any selected permission can view this page. If none are selected, the page is visible to everyone.')
+                                    ->options(fn() => new PermissionsService()->permissionsList())
+                                    ->searchable()
+                                    ->multiple()
                             ]),
                     ]),
             ]);

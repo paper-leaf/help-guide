@@ -30,7 +30,7 @@ return new class extends Migration
                 ->onDelete('set null');
             $table->string('icon')->default('heroicon-o-information-circle');
             $table->longText('content')->nullable();
-            $table->string('viewable_by_role')->nullable();
+            $table->string('required_permissions')->nullable();
             $table->int('nav_order')->default(0);
             $table->json('related_pages')->nullable();
             $table->timestamps();

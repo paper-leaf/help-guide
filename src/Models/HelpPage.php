@@ -32,7 +32,7 @@ class HelpPage extends Model
         'topic_id',
         'icon',
         'content',
-        'viewable_by_role',
+        'required_permissions',
         'nav_order',
         'related_pages',
     ];

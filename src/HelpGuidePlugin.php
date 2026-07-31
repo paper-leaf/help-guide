@@ -88,14 +88,14 @@ class HelpGuidePlugin implements Plugin
      * Setting the list of Permissions that are in the system
      * These must be connected to the Gates in the base system
      */
-    public function availablePermissions(bool | Closure | null $available_permissions): static
+    public function availablePermissions(array | Closure | null $available_permissions): static
     {
         $this->available_permissions = $available_permissions;
 
         return $this;
     }
 
-    public function getavailablePermissions(): ?bool
+    public function getAvailablePermissions(): ?array
     {
         return $this->evaluate($this->available_permissions);
     }
