@@ -19,7 +19,7 @@ class PermissionsService
 
     /**
      * Check if the current user has permission to edit the guide
-     * 
+     *
      * @return bool
      */
     public function canManageGuide()
@@ -31,7 +31,7 @@ class PermissionsService
 
     /**
      * Get the list of permission options
-     * 
+     *
      * @return array
      */
     public function permissionsList()
