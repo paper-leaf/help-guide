@@ -62,28 +62,12 @@ class HelpGuideServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
-        // $this->app->registered(function () {
-        //     if (collect(Filament::getPanels())->has('help-guide')) {
-        //         return;
-        //     }
-
         // Register the custom Help Guide panel
         $this->app->register(HelpGuidePanelProvider::class);
-        // });
     }
 
     public function packageBooted(): void
     {
-        // Filament::serving(function () {
-        //     // Prevent double execution loops during login redirects
-        //     if (! collect(Filament::getPanels())->has('help-guide')) {
-        //         $this->app->register(HelpGuidePanelProvider::class);
-        //         // Filament::registerPanel(
-        //             // HelpGuidePanel::make()
-        //         // );
-        //     }
-        // });
-
         // Asset Registration
         FilamentAsset::register(
             $this->getAssets(),
