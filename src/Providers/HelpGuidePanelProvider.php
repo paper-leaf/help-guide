@@ -4,6 +4,7 @@ namespace PaperLeaf\HelpGuide\Providers;
 
 use Filament\Facades\Filament;
 use Filament\View\PanelsRenderHook;
+use Filament\Support\Facades\FilamentView;
 use Illuminate\Support\Facades\Blade;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -118,5 +119,20 @@ class HelpGuidePanelProvider extends PanelProvider
             ->orderBy('nav_order')
             ->pluck('title')
             ->toArray();
+    }
+
+    public function boot(): void
+    {
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+            function (): string {
+                // Only output content if this is the default panel
+                if (Filament::getCurrentPanel()?->getId() !== Filament::getDefaultPanel()?->getId()) {
+                    return '';
+                }
+
+                return Blade::render('help-guide::guide-link');
+            }
+        );
     }
 }
