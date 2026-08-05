@@ -2,7 +2,6 @@
 
 namespace PaperLeaf\HelpGuide;
 
-use Filament\Facades\Filament;
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
