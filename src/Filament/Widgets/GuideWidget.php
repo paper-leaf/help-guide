@@ -2,8 +2,8 @@
 
 namespace PaperLeaf\HelpGuide\Filament\Widgets;
 
-use Filament\Widgets\Widget;
 use Filament\Facades\Filament;
+use Filament\Widgets\Widget;
 use Livewire\Attributes\Computed;
 
 class GuideWidget extends Widget
