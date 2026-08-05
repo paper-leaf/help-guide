@@ -3,6 +3,8 @@
 namespace PaperLeaf\HelpGuide\Providers;
 
 use Filament\Facades\Filament;
+use Filament\View\PanelsRenderHook;
+use Illuminate\Support\Facades\Blade;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationItem;
@@ -65,7 +67,11 @@ class HelpGuidePanelProvider extends PanelProvider
                 for: 'PaperLeaf\\HelpGuide\\Filament\\Resources'
             )
             ->navigationGroups(self::generateNavigationGroups())
-            ->navigationItems(self::generateNavigationItems());
+            ->navigationItems(self::generateNavigationItems())
+            ->renderHook(
+                PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+                fn (): string => Blade::render('help-guide::back-link'),
+            );
     }
 
     /**
