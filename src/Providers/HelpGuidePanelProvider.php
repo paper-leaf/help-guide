@@ -69,6 +69,7 @@ class HelpGuidePanelProvider extends PanelProvider
             )
             ->navigationGroups(self::generateNavigationGroups())
             ->navigationItems(self::generateNavigationItems())
+            ->userMenu(false)
             ->renderHook(
                 PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
                 fn (): string => Blade::render('help-guide::back-link'),
