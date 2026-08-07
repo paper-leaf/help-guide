@@ -2,6 +2,7 @@
 
 namespace PaperLeaf\HelpGuide\Providers;
 
+use Illuminate\Support\Facades\Schema;
 use Filament\Facades\Filament;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -83,6 +84,10 @@ class HelpGuidePanelProvider extends PanelProvider
      */
     private function generateNavigationItems()
     {
+        if (!Schema::hasTable('help_guide_pages')) {
+            return [];
+        }
+
         // Query the pages
         $pages = HelpPage::query()
             ->where('status', Status::PUBLISHED)
@@ -114,6 +119,10 @@ class HelpGuidePanelProvider extends PanelProvider
      */
     private function generateNavigationGroups()
     {
+        if (!Schema::hasTable('help_guide_topics')) {
+            return [];
+        }
+
         // Query the topics
         return Topic::query()
             ->has('pages', '>', 0)
