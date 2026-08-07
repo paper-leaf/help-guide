@@ -1,13 +1,8 @@
-# Help Guide provides contextual help and guidance throughout your Filament application, making it easier for users to understand and navigate your application.
+# Help Guide
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/paper-leaf/help-guide.svg?style=flat-square)](https://packagist.org/packages/paper-leaf/help-guide)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/paper-leaf/help-guide/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/paper-leaf/help-guide/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/paper-leaf/help-guide/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/paper-leaf/help-guide/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/paper-leaf/help-guide.svg?style=flat-square)](https://packagist.org/packages/paper-leaf/help-guide)
 
-
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Help Guide provides contextual help and guidance throughout your Filament application, making it easier for users to understand and navigate your application.
 
 ## Installation
 
@@ -45,18 +40,51 @@ Optionally, you can publish the views using
 php artisan vendor:publish --tag="help-guide-views"
 ```
 
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
 ## Usage
 
+Ensure you have `->default()` set on your primary panel you are intalling this plugin on.
+
+Register the plugin within your default panel's definition.
+
 ```php
-$helpGuide = new PaperLeaf\HelpGuide();
-echo $helpGuide->echoPhrase('Hello, PaperLeaf!');
+->plugin(
+    HelpGuidePlugin::make()
+)
+```
+
+The plugin can be customized in the following ways:
+
+### Ability to Manage the Guide
+
+Set which users can access the "Manage Guide" section of the panel. Only users who have the specificied permission will see any edit functionality within the Help Guide.
+
+```php
+->plugin(
+    HelpGuidePlugin::make()
+        ->manageGuidePermission('gate_name')
+)
+```
+
+### Available Permissions
+
+Define the list of permissions that users can have within the system. These need to be tied to Gates within Laravel. Then these permissions can be assigned to help pages, and only users with that permission can view that page.
+
+```php
+->plugin(
+    HelpGuidePlugin::make()
+        ->availablePermissions(fn() => SystemPermission::toArray())
+)
+```
+
+### Login URL
+
+Specify the login URL of your main dashboard so unauthenticated users accessing the Help Guide are redirected to the correct login page.
+
+```php
+->plugin(
+    HelpGuidePlugin::make()
+        ->loginUrl('/custom-url')
+)
 ```
 
 ## Testing
