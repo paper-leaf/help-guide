@@ -47,6 +47,8 @@ Ensure you have `->default()` set on your primary panel you are intalling this p
 Register the plugin within your default panel's definition.
 
 ```php
+use PaperLeaf\HelpGuide\HelpGuidePlugin;
+
 ->plugin(
     HelpGuidePlugin::make()
 )
