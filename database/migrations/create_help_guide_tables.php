@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('description')->nullable();
-            $table->int('nav_order')->default(0);
+            $table->integer('nav_order')->default(0);
             $table->timestamps();
         });
 
