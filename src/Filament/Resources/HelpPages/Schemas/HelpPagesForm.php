@@ -4,7 +4,7 @@ namespace PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Schemas;
 
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\ToggleButtons;
@@ -58,7 +58,7 @@ class HelpPageForm
                                     ->belowLabel('Set an icon to represent this page in the navigation.')
                                     ->placeholder('heroicon-o-face-smile'),
 
-                                TextArea::make('description')
+                                Textarea::make('description')
                                     ->label('Short description')
                                     ->belowLabel('Briefly describe what this page covers.')
                                     ->required(),
