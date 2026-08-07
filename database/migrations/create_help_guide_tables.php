@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('icon')->default('heroicon-o-information-circle');
             $table->longText('content')->nullable();
             $table->string('required_permissions')->nullable();
-            $table->int('nav_order')->default(0);
+            $table->integer('nav_order')->default(0);
             $table->json('related_pages')->nullable();
             $table->timestamps();
         });
