@@ -2,7 +2,6 @@
 
 namespace PaperLeaf\HelpGuide\Providers;
 
-use Illuminate\Support\Facades\Schema;
 use Filament\Facades\Filament;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -18,6 +17,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use PaperLeaf\HelpGuide\Http\Middleware\RedirectGuests;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
@@ -84,7 +84,7 @@ class HelpGuidePanelProvider extends PanelProvider
      */
     private function generateNavigationItems()
     {
-        if (!Schema::hasTable('help_guide_pages')) {
+        if (! Schema::hasTable('help_guide_pages')) {
             return [];
         }
 
@@ -119,7 +119,7 @@ class HelpGuidePanelProvider extends PanelProvider
      */
     private function generateNavigationGroups()
     {
-        if (!Schema::hasTable('help_guide_topics')) {
+        if (! Schema::hasTable('help_guide_topics')) {
             return [];
         }
 
