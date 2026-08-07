@@ -98,7 +98,7 @@ class HelpPageForm
 
                                 Toggle::make('is_featured')
                                     ->label('Featured page')
-                                    ->belowLabel('Feature this page on the main dashboard and in the sidebar'),
+                                    ->belowLabel('Feature this page on the main dashboard'),
 
                                 TextInput::make('nav_order')
                                     ->label('Order in navigation')
