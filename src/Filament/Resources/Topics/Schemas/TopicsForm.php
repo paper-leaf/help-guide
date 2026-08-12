@@ -2,7 +2,7 @@
 
 namespace PaperLeaf\HelpGuide\Filament\Resources\Topics\Schemas;
 
-use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
@@ -40,7 +40,7 @@ class TopicForm
                     ->numeric()
                     ->step(1),
 
-                TextArea::make('description')
+                Textarea::make('description')
                     ->label('Short description')
                     ->belowLabel('Briefly describe what this topic contains.')
                     ->required()

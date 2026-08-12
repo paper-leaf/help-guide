@@ -7,7 +7,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\ToggleButtons;
+use Filament\Forms\Components\Radio;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
@@ -85,7 +85,7 @@ class HelpPageForm
 
                         Section::make()
                             ->schema([
-                                ToggleButtons::make('status')
+                                Radio::make('status')
                                     ->label('Page status')
                                     ->options(function () {
                                         return collect(Status::cases())
@@ -93,8 +93,7 @@ class HelpPageForm
                                             ->toArray();
                                     })
                                     ->default(Status::DRAFT->value)
-                                    ->required()
-                                    ->inline(),
+                                    ->required(),
 
                                 Toggle::make('is_featured')
                                     ->label('Featured page')

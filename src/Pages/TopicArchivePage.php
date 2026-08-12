@@ -33,7 +33,7 @@ class TopicArchivePage extends Page
     public function getBreadcrumbs(): array
     {
         return [
-            WelcomePage::getUrl() => 'Home',
+            WelcomePage::getUrl() => 'Help Guide',
             '' => $this->record->title,
         ];
     }

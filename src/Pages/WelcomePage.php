@@ -9,11 +9,14 @@ use Illuminate\Contracts\Support\Htmlable;
 use Livewire\Attributes\Computed;
 use PaperLeaf\HelpGuide\Models\HelpPage;
 
+use PaperLeaf\HelpGuide\Models\Enums\Status;
+
 class WelcomePage extends Page
 {
     protected string $view = 'help-guide::pages.welcome-page';
 
-    protected static ?string $title = 'Home';
+    protected static ?string $title = 'Help Guide';
+    protected static ?string $navigationLabel = 'Help Guide';
 
     protected static ?string $slug = 'welcome';
 
@@ -29,6 +32,7 @@ class WelcomePage extends Page
     {
         return HelpPage::query()
             ->where('is_featured', true)
+            ->where('status', Status::PUBLISHED)
             ->get();
     }
 }

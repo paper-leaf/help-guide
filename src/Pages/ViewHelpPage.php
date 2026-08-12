@@ -74,7 +74,7 @@ class ViewHelpPage extends Page
     public function getBreadcrumbs(): array
     {
         $breadcrumbs = [
-            WelcomePage::getUrl() => 'Home',
+            WelcomePage::getUrl() => 'Help Guide',
         ];
 
         if (isset($this->topic)) {

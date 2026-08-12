@@ -3,5 +3,5 @@
     icon="heroicon-m-arrow-right"
     icon-position="after"
 >
-    Back to admin
+    Back to {{ \Filament\Facades\Filament::getDefaultPanel()->getBrandName() }}
 </x-filament::link>

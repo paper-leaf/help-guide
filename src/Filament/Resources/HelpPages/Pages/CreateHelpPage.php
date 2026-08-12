@@ -15,4 +15,10 @@ class CreateHelpPage extends CreateRecord
         return parent::getCreateAnotherFormAction()
             ->label('Create & add another');
     }
+
+    protected function afterSave(): void
+    {
+        // Dispatches to the global window listener that updates the sidebar layout
+        $this->dispatch('refresh-sidebar');
+    }
 }
