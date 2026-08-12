@@ -10,6 +10,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Radio;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
+use Wallacemartinss\FilamentIconPicker\Forms\Components\IconPickerField;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
@@ -53,10 +54,9 @@ class HelpPageForm
                                     ->options(fn () => Topic::query()->pluck('title', 'id'))
                                     ->searchable(),
 
-                                TextInput::make('icon')
+                                IconPickerField::make('icon')
                                     ->required()
-                                    ->belowLabel('Set an icon to represent this page in the navigation.')
-                                    ->placeholder('heroicon-o-face-smile'),
+                                    ->belowLabel('Set an icon to represent this page in the navigation.'),
 
                                 Textarea::make('description')
                                     ->label('Short description')

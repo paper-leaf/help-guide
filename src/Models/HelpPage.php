@@ -62,27 +62,6 @@ class HelpPage extends Model
     }
 
     /**
-     * Create the verified (safe) icon for display
-     */
-    protected function safeIcon(): Attribute
-    {
-        // Make sure the page icon exists before using it
-        $default_icon = 'heroicon-o-information-circle';
-
-        try {
-            $icon = Str::start($this->icon, 'heroicon-');
-            $icon_exists = app(IconFactory::class)->svg($icon) !== null;
-            $icon = ($icon_exists) ? $icon : $default_icon;
-        } catch (\Exception $e) {
-            $icon = $default_icon;
-        }
-
-        return Attribute::make(
-            get: fn () => $icon,
-        );
-    }
-
-    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -124,7 +103,7 @@ class HelpPage extends Model
     public function canView()
     {
         // Check if there's any permissions even saved on this page
-        if (! isset($this->required_permissions)) {
+        if (! isset($this->required_permissions) || is_array($this->required_permissions) && count($this->required_permissions) == 0) {
             return true;
         }
 

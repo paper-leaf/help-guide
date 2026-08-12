@@ -103,7 +103,7 @@ class HelpGuidePanelProvider extends PanelProvider
                 return NavigationItem::make($page->title)
                     ->url(fn () => $page->page_url)
                     ->isActiveWhen(fn () => request()->url() === $page->page_url)
-                    ->icon($page->safe_icon)
+                    ->icon($page->icon)
                     ->group($group)
                     ->sort($page->nav_order)
                     ->visible(fn () => $page->canView());
