@@ -11,7 +11,7 @@
         <x-filament::section>
             <div class="flex flex-col md:flex-row gap-3 md:gap-5">
                 <div class="bg-primary-500 p-3 h-10 w-10 min-w-10 flex items-center justify-center rounded-full">
-                    <x-dynamic-component :component="$page->safe_icon" class="w-7 h-7 min-w-7" />
+                    <x-dynamic-component :component="$page->icon" class="w-7 h-7 min-w-7" />
                 </div>
 
                 <div class="">
