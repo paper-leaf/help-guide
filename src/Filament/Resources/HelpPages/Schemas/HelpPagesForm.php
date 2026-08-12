@@ -10,13 +10,13 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
-use Wallacemartinss\FilamentIconPicker\Forms\Components\IconPickerField;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
 use PaperLeaf\HelpGuide\Services\PermissionsService;
+use Wallacemartinss\FilamentIconPicker\Forms\Components\IconPickerField;
 
 class HelpPageForm
 {
