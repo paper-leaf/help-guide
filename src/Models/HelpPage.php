@@ -2,10 +2,8 @@
 
 namespace PaperLeaf\HelpGuide\Models;
 
-use BladeUI\Icons\Factory as IconFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Pages\ViewHelpPage;
 use PaperLeaf\HelpGuide\Services\PermissionsService;
