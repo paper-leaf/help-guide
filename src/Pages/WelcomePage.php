@@ -7,15 +7,15 @@ use Filament\Pages\Page;
 use Filament\Support\Icons\Heroicon;
 use Illuminate\Contracts\Support\Htmlable;
 use Livewire\Attributes\Computed;
-use PaperLeaf\HelpGuide\Models\HelpPage;
-
 use PaperLeaf\HelpGuide\Models\Enums\Status;
+use PaperLeaf\HelpGuide\Models\HelpPage;
 
 class WelcomePage extends Page
 {
     protected string $view = 'help-guide::pages.welcome-page';
 
     protected static ?string $title = 'Help Guide';
+
     protected static ?string $navigationLabel = 'Help Guide';
 
     protected static ?string $slug = 'welcome';

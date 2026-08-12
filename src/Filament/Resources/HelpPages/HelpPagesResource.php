@@ -27,7 +27,9 @@ class HelpPagesResource extends Resource
     protected static ?string $cluster = ManageCluster::class;
 
     protected static ?string $navigationLabel = 'Pages';
+
     protected static ?string $modelLabel = 'Page';
+
     protected static ?string $pluralModelLabel = 'Pages';
 
     public static function canAccess(): bool
