@@ -38,12 +38,12 @@ class TopicForm
                     ->label('Order in navigation')
                     ->belowLabel('Set the display order for this page within its topic. Lower numbers appear first.')
                     ->numeric()
+                    ->default(0)
                     ->step(1),
 
                 Textarea::make('description')
                     ->label('Short description')
                     ->belowLabel('Briefly describe what this topic contains.')
-                    ->required()
                     ->columnSpanFull(),
             ]);
     }
