@@ -5,10 +5,11 @@
         </h1>
 
         <p class="text-center max-w-[60ch]">
+            Find articles and guides for common tasks to learn how to use the application.</br>
             @if($this->featured_articles->count() > 0)
-                Browse help articles and step-by-step guides to learn how to use the application's features and complete common tasks. Start with one of the featured articles below, or explore the full Help Guide by browsing topics in the sidebar.
+                Start with a featured guide below, or explore the full Help Guide by browsing topics in the sidebar.
             @else 
-                Browse help articles and step-by-step guides to learn how to use the application's features and complete common tasks. Explore the full Help Guide by browsing topics in the sidebar.
+                Explore the full Help Guide by browsing topics in the sidebar.
             @endif
         </p>
     </div>
