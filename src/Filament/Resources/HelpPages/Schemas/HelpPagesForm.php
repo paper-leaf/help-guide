@@ -68,6 +68,7 @@ class HelpPageForm
                                     ->required()
                                     ->toolbarButtons([
                                         ['bold', 'italic', 'underline', 'strike', 'link'],
+                                        ['code', 'codeBlock'],
                                         ['h2', 'h3', 'h4', 'h5'],
                                         ['bulletList', 'orderedList'],
                                         ['undo', 'redo', 'clearFormatting'],
