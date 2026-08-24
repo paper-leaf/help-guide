@@ -14,4 +14,13 @@ class EditHelpPage extends EditRecord
         // Dispatches to the global window listener that updates the sidebar layout
         $this->dispatch('refresh-sidebar');
     }
+
+    public function getBreadcrumbs(): array
+    {
+        return [
+            '/help-guide/manage' => 'Guide Management',
+            HelpPagesResource::getUrl('index') => 'Manage Pages',
+            '' => 'Edit Page',
+        ];
+    }
 }

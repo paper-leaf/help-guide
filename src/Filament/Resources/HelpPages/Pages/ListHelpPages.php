@@ -14,6 +14,14 @@ class ListHelpPages extends ListRecords
 
     protected static ?string $navigationLabel = 'Manage Pages';
 
+    public function getBreadcrumbs(): array
+    {
+        return [
+            '/help-guide/manage' => 'Guide Management',
+            HelpPagesResource::getUrl('index') => 'Manage Pages',
+        ];
+    }
+
     protected function getHeaderActions(): array
     {
         return [

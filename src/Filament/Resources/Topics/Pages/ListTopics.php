@@ -21,4 +21,12 @@ class ListTopics extends ListRecords
                 ->label('Add a Topic'),
         ];
     }
+
+    public function getBreadcrumbs(): array
+    {
+        return [
+            '/help-guide/manage' => 'Guide Management',
+            TopicsResource::getUrl('index') => 'Manage Topics',
+        ];
+    }
 }
