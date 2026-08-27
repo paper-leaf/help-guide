@@ -3,7 +3,6 @@
 namespace PaperLeaf\HelpGuide\Filament\Resources\HelpPages\Schemas;
 
 use Filament\Forms\Components\Radio;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -12,12 +11,12 @@ use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
+use Kisame76\FilamentAdvancedRichEditor\Forms\Components\AdvancedRichEditor;
 use PaperLeaf\HelpGuide\Models\Enums\Status;
 use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
 use PaperLeaf\HelpGuide\Services\PermissionsService;
 use Wallacemartinss\FilamentIconPicker\Forms\Components\IconPickerField;
-use Kisame76\FilamentAdvancedRichEditor\Forms\Components\AdvancedRichEditor;
 
 class HelpPageForm
 {
