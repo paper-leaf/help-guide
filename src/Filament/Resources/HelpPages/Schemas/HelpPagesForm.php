@@ -17,6 +17,7 @@ use PaperLeaf\HelpGuide\Models\HelpPage;
 use PaperLeaf\HelpGuide\Models\Topic;
 use PaperLeaf\HelpGuide\Services\PermissionsService;
 use Wallacemartinss\FilamentIconPicker\Forms\Components\IconPickerField;
+use Kisame76\FilamentAdvancedRichEditor\Forms\Components\AdvancedRichEditor;
 
 class HelpPageForm
 {
@@ -63,14 +64,19 @@ class HelpPageForm
                                     ->belowLabel('Briefly describe what this page covers.')
                                     ->required(),
 
-                                RichEditor::make('content')
+                                AdvancedRichEditor::make('content')
                                     ->label('Page content')
+                                    // ->stickyToolbar()
                                     ->required()
                                     ->toolbarButtons([
                                         ['bold', 'italic', 'underline', 'strike', 'link'],
+                                        'divider',
                                         ['code', 'codeBlock'],
+                                        'divider',
                                         ['h2', 'h3', 'h4', 'h5'],
+                                        'divider',
                                         ['bulletList', 'orderedList'],
+                                        'divider',
                                         ['undo', 'redo', 'clearFormatting'],
                                     ]),
 

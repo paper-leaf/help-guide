@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d3b39d4f78f4853c8033c63e40692c3",
+    "content-hash": "3185925a6f54ed0ac0d530e8886d68d1",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -2088,6 +2088,95 @@
                 "source": "https://github.com/kirschbaum-development/eloquent-power-joins/tree/4.3.3"
             },
             "time": "2026-07-23T11:41:37+00:00"
+        },
+        {
+            "name": "kisame76/filament-advanced-rich-editor",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kisame76/filament-advanced-rich-editor.git",
+                "reference": "84ccd42f8df72dd9e9ff2fde7356694e40e48d11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kisame76/filament-advanced-rich-editor/zipball/84ccd42f8df72dd9e9ff2fde7356694e40e48d11",
+                "reference": "84ccd42f8df72dd9e9ff2fde7356694e40e48d11",
+                "shasum": ""
+            },
+            "require": {
+                "filament/actions": "^5.7",
+                "filament/forms": "^5.7",
+                "filament/schemas": "^5.7",
+                "filament/support": "^5.7",
+                "illuminate/contracts": "^11.0||^12.0||^13.0",
+                "illuminate/database": "^11.0||^12.0||^13.0",
+                "illuminate/support": "^11.0||^12.0||^13.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.16",
+                "ueberdosis/tiptap-php": "^2.0"
+            },
+            "require-dev": {
+                "filament/filament": "^5.7",
+                "larastan/larastan": "^3.0",
+                "laravel/pint": "^1.0",
+                "league/html-to-markdown": "^5.1",
+                "orchestra/testbench": "^9.0||^10.0||^11.0",
+                "pestphp/pest": "^3.0||^4.0",
+                "pestphp/pest-plugin-laravel": "^3.0||^4.0",
+                "phiki/phiki": "^2.2",
+                "spatie/laravel-medialibrary": "^11.0"
+            },
+            "suggest": {
+                "filament/infolists": "Required for AdvancedRichEntry, which renders stored content on a view page (^5.7).",
+                "filament/tables": "Required for AdvancedRichColumn, which renders stored content in a table cell (^5.7).",
+                "league/html-to-markdown": "Required to render stored rich content as Markdown with `AdvancedRichContentRenderer::toMarkdown()` (^5.1).",
+                "phiki/phiki": "Required to colour code blocks when rendering stored content with `AdvancedRichContentRenderer::highlightCode()` (^2.2).",
+                "spatie/laravel-medialibrary": "Required to store editor image attachments in a media library collection (^11.0)."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kisame76\\FilamentAdvancedRichEditor\\FilamentAdvancedRichEditorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kisame76\\FilamentAdvancedRichEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kiyan Doguc",
+                    "email": "k.doguc@kisame-labs.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A drop-in Filament v5 RichEditor with a toolbar you arrange yourself, plus callouts, a media browser, find and replace, an accessibility check, drafts in the browser, a slash menu and Spatie Media Library attachments.",
+            "homepage": "https://github.com/Kisame76/filament-advanced-rich-editor",
+            "keywords": [
+                "editor",
+                "filament",
+                "filament-plugin",
+                "filamentphp",
+                "laravel",
+                "media-library",
+                "mentions",
+                "rich-editor",
+                "tiptap",
+                "toolbar",
+                "wysiwyg"
+            ],
+            "support": {
+                "issues": "https://github.com/Kisame76/filament-advanced-rich-editor/issues",
+                "source": "https://github.com/Kisame76/filament-advanced-rich-editor"
+            },
+            "time": "2026-08-27T13:38:43+00:00"
         },
         {
             "name": "laravel/framework",

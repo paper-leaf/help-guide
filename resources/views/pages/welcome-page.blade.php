@@ -15,6 +15,11 @@
     </div>
 
     @if($this->featured_articles->count() > 0)
-        @include('help-guide::partials.page-cards', ['pages' => $this->featured_articles])
+        <div class="-mt-8">
+            <h2 class="title-3 !mb-6 !mt-0">Featured guides</h2>
+
+            @include('help-guide::partials.page-cards', ['pages' => $this->featured_articles])
+        </div>
+
     @endif
 </x-filament-panels::page>
