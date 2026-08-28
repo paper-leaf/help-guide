@@ -1,7 +1,7 @@
 <x-filament-widgets::widget>
     <x-filament::section>
         <div class="flex flex-row gap-3 md:gap-5">
-            <div class="bg-primary-500 p-3 h-10 w-10 min-w-10 flex items-center justify-center rounded-full">
+            <div class="bg-primary-950 p-3 h-10 w-10 min-w-10 flex items-center justify-center rounded-full">
                 <x-filament::icon
                     icon="heroicon-o-book-open"
                     class="w-6 h-6 min-w-6 text-white"
