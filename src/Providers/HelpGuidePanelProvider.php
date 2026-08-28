@@ -55,6 +55,7 @@ class HelpGuidePanelProvider extends PanelProvider
             ->authMiddleware([
                 RedirectGuests::class,
             ])
+            ->colors(fn () => Filament::getDefaultPanel()->getColors())
             ->viteTheme('resources/css/app.css')
             ->brandName(fn () => Filament::getDefaultPanel()->getBrandName())
             ->brandLogo(fn () => Filament::getDefaultPanel()->getBrandLogo())
