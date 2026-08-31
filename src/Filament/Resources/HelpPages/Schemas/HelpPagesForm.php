@@ -65,7 +65,7 @@ class HelpPageForm
 
                                 AdvancedRichEditor::make('content')
                                     ->label('Page content')
-                                    // ->stickyToolbar()
+                                    ->linkAttributes(false)
                                     ->required()
                                     ->toolbarButtons([
                                         ['bold', 'italic', 'underline', 'strike', 'link'],
