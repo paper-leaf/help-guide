@@ -156,6 +156,7 @@ class ViewHelpPage extends Page
             $heading_url = "#{$slug}";
 
             $heading->setAttribute('id', $slug);
+            $heading->setAttribute('style', 'scroll-margin-top: 80px;');
 
             // 3. Construct the clean node item
             $node = [
