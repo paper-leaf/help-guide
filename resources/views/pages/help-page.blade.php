@@ -10,14 +10,14 @@
                 <b class="block text-xs mb-3 uppercase">On this page</b>
                 <div class="flex flex-col gap-1 border-l pl-4">
                     @foreach($this->headings_on_page as $heading_2) 
-                        <a href="{{ $heading_2['url'] }}" class="text-sm">
+                        <a href="{{ $heading_2['url'] }}" class="text-sm hover:underline">
                             {{ $heading_2['text'] }}
                         </a>
 
                         @if(count($heading_2['children']) > 0)
                             <div class="flex flex-col gap-1 ml-4">
                                 @foreach($heading_2['children'] as $heading_3)
-                                    <a href="{{ $heading_3['url'] }}" class="text-sm">
+                                    <a href="{{ $heading_3['url'] }}" class="text-sm hover:underline">
                                         {{ $heading_3['text'] }}
                                     </a>
                                 @endforeach
